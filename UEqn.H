@@ -7,6 +7,7 @@
         fvm::div(phi, U)
       + MRF.DDt(U)
       + turbulence->divDevSigma(U)
+      + fvm::Sp(k_alpha/rho_density, U) // penalizacao de Brinkman
      ==
         fvModels.source(U)
     );
